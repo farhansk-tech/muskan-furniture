@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cream font-sans text-chocolate antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+  ::selection {
+    background: #D8C3A5;
+    color: #302017;
+  }
+}
+
+@layer components {
+  .bg-wood-gradient {
+    background: linear-gradient(135deg, #6b4632 0%, #4B2E20 40%, #302017 100%);
+  }
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.3em] text-walnut/70;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
