@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import AppLink from '../ui/AppLink'
 import { NAV_LINKS } from '../../data/site'
 
 export default function Navbar() {
@@ -29,46 +30,48 @@ export default function Navbar() {
         solid ? 'bg-cream/95 shadow-[0_1px_0_rgba(75,46,32,0.12)] backdrop-blur' : 'bg-transparent'
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
-        <a
-          href="#top"
-          className={`font-serif text-lg tracking-[0.18em] transition-colors duration-500 sm:text-xl ${
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-5 sm:py-4 lg:px-8" aria-label="Main navigation">
+        <AppLink
+          to="/#top"
+          className={`whitespace-nowrap font-serif text-base tracking-[0.14em] transition-colors duration-500 sm:text-xl sm:tracking-[0.18em] ${
             solid ? 'text-walnut' : 'text-cream'
           }`}
         >
           MUSKAN <span className="font-light">FURNITURES</span>
-        </a>
+        </AppLink>
 
         <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
+              <AppLink
+                to={link.href}
                 className={`text-sm tracking-wide transition-opacity hover:opacity-60 ${
                   solid ? 'text-chocolate' : 'text-cream/90'
                 }`}
               >
                 {link.label}
-              </a>
+              </AppLink>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
-          <a
-            href="#custom-design"
-            className={`hidden rounded-full border px-5 py-2 text-sm transition-colors duration-500 sm:inline-flex ${
-              solid ? 'border-walnut text-walnut hover:bg-walnut hover:text-cream' : 'border-cream/60 text-cream hover:bg-cream hover:text-walnut'
+        <div className="flex items-center gap-2 sm:gap-3">
+          <AppLink
+            to="/custom-order"
+            className={`hidden rounded-full border px-5 py-2 text-sm transition-colors duration-500 md:inline-flex ${
+              solid
+                ? 'border-walnut text-walnut hover:bg-walnut hover:text-cream'
+                : 'border-cream/60 text-cream hover:bg-cream hover:text-walnut'
             }`}
           >
             Customize
-          </a>
+          </AppLink>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
-            className={`rounded-full p-2 lg:hidden ${solid ? 'text-walnut' : 'text-cream'}`}
+            className={`-mr-2 rounded-full p-2.5 lg:hidden ${solid ? 'text-walnut' : 'text-cream'}`}
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -82,18 +85,18 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden bg-cream lg:hidden"
+            className="max-h-[calc(100svh-4rem)] overflow-y-auto overflow-hidden bg-cream lg:hidden"
           >
             <ul className="flex flex-col px-5 pb-8">
               {NAV_LINKS.map((link) => (
                 <li key={link.href} className="border-b border-beige/50">
-                  <a
-                    href={link.href}
+                  <AppLink
+                    to={link.href}
                     onClick={() => setOpen(false)}
                     className="block py-4 font-serif text-2xl text-walnut"
                   >
                     {link.label}
-                  </a>
+                  </AppLink>
                 </li>
               ))}
             </ul>

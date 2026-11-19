@@ -1,5 +1,6 @@
 import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { NAV_LINKS, SITE } from '../../data/site'
+import AppLink from '../ui/AppLink'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -44,9 +45,9 @@ export default function Footer() {
           <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="transition-colors hover:text-beige">
+                <AppLink to={link.href} className="transition-colors hover:text-beige">
                   {link.label}
-                </a>
+                </AppLink>
               </li>
             ))}
           </ul>

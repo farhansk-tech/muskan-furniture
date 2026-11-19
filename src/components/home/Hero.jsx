@@ -73,7 +73,7 @@ export default function Hero() {
           <Button href="#collection" variant="light">
             Explore Collection
           </Button>
-          <Button href="#custom-design" variant="outline" className="text-cream">
+          <Button href="/custom-order" variant="outline" className="text-cream">
             Customize Your Furniture
           </Button>
         </div>

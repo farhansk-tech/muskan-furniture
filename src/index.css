@@ -33,3 +33,21 @@
     scroll-behavior: auto;
   }
 }
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+}
+
+@layer components {
+  .legend {
+    @apply font-serif text-2xl text-walnut;
+  }
+}

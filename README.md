@@ -19,3 +19,9 @@ All business details live in `src/data/site.js`. Replace anything in [brackets].
 
 ## Security
 Never put a Supabase service-role key or any secret in frontend code. Only the public anon key goes in `.env` variables prefixed `VITE_`, and admin access will be protected by Supabase Auth with row-level security.
+
+## Custom enquiry form (Supabase setup)
+1. Create a free project at supabase.com.
+2. Open SQL Editor, paste `supabase/schema.sql`, and run it.
+3. In StackBlitz, create a file named `.env` in the project root (copy `.env.example`) and add your URL and anon key from Project Settings → API.
+4. Restart the preview. The form at `/custom-order` will save enquiries to Supabase.
